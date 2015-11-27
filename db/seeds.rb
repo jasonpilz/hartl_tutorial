@@ -5,3 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+class Seed
+
+  def self.plant
+    new.generate
+  end
+
+  def generate
+    create_users
+  end
+
+  def create_users
+    @jason = User.create(name: "Jason Pilz",
+                         email: "jasonpilz@gmail.com",
+                         password: "enigma",
+                         password_confirmation: "enigma")
+  end
+end
+
+Seed.plant
